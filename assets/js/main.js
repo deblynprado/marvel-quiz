@@ -31,9 +31,13 @@ function getCharacter(id) {
 		characters: characterId
 	})
 	.done(function(data) {
+		$('.loading').css('display', 'none');
+		$('.content').css('display', 'inline-block');
 		characterInfo(data);
 	})
 	.fail(function(err){
+		$('.content').css('display', 'none');
+		$('.loading').css('display', 'inline-block');
 		generateCharID();
 		// console.log(err);
 	});
