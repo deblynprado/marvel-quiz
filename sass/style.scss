@@ -1,1 +1,21 @@
 @import "compass/css3";
+
+.columns {
+	display: inline-block;
+	position: relative;
+	width: 50%;
+
+	&.col-left { float: left; }
+
+	&.col-right { float: right; }
+}
+
+.character-photo { width: 100%; }
+
+@media( max-width: 767px ) {
+	.columns {
+		width: 100%;
+
+		.col-right { float: left; }
+	}
+}
