@@ -40,15 +40,22 @@
 <body>
   <header>
     <h1>Marvelous Quiz</h1>
-    <figure>
-      <span class="score"></span>
-      <img src="" alt="" class="character-photo">
-      <form>
-        <input type="text" class="character-name" value="">
-        <a href="#" class="send-name">Answer</a>
-      </form>
-    </figure>
   </header>
+
+  <div class="columns col-left">
+    <figure>
+      <img src="" alt="" class="character-photo">
+    </figure>
+  </div>
+
+  <div class="columns col-right">
+    <p>Your Score: <span class="score">0</span></p>
+    <form>
+      <input type="text" class="character-name" value="">
+      <a href="#" class="send-name">Answer</a>
+    </form>
+    <a href="#" class="get-tip">I give up, who is it? <span class="tip-name"></span></a>
+  </div>
   <footer></footer>
 </body>
 </html>
