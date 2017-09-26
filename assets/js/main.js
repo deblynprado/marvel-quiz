@@ -116,12 +116,15 @@ function checkAnswer(name) {
 			loadScore(score);
 			$('.answer-area').addClass('right-answer');
 			$('.get-tip').addClass('blocked');
+			$('.character-name').attr('disabled', 'disabled');
 			$('.send-name').addClass('blocked');
 		} else {
 			score--;
 			if ( score < 0 ) { score = 0; }
 			loadScore(score);
 			$('.answer-area').addClass('wrong-answer');
+			$('.get-tip').removeClass('blocked');
+			$('.send-name').removeClass('blocked');
 		}
 
 		whatsShare(score);

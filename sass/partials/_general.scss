@@ -1,4 +1,7 @@
-body { overflow-x: hidden; }
+body {
+	overflow-x: hidden;
+	margin: 0;
+}
 
 a {
 	color: #000;
@@ -6,13 +9,19 @@ a {
 }
 
 header {
+	background-color: #EA2328;
+	color: #fff;
+	font-family: Marvel;
+	font-size: 20px;
 	display: inline-block;
 	text-align: center;
+	text-transform: uppercase;
 	width: 100%;
 }
 
 .content {
 	display: inline-block;
+	padding: 0 10px;
 	width: 100%;
 }
 
@@ -35,6 +44,8 @@ header {
 
 	&.col-right { float: right; }
 }
+
+footer { padding: 0 10px; }
 
 @media( max-width: 767px ) {
 	.columns {

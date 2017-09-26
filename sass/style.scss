@@ -82,7 +82,13 @@ $wrongColor: #EA2328;
 
 .game-over {
 	display: none;
-	width: 100%;
+	font-family: Marvel;
+	font-size: 20px;
+	height: 100px;	
+	margin-left: 25%;
+	position: relative;
+	text-align: center;
+	width: 50%;
 }
 
 @media( max-width: 767px ) {
