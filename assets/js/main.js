@@ -21,7 +21,7 @@ function generateCharID() {
 	var minID = 1009210; // Lower ID that I found on API
 	var maxID = 1009742; // Higher ID that I found on API
 	var charId = Math.floor(Math.random()*(minID-maxID+1)+minID);
-	getCharacter('1009718');
+	getCharacter(charId);
 }
 
 /**

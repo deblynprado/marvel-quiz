@@ -32,6 +32,7 @@
   <!-- JS  -->
   <script src="assets/js/vendor/jquery-3.2.1.min.js"></script>
   <script src="assets/js/vendor/crypto-js.min.js"></script>
+  <script src="https://use.fontawesome.com/d6d100fa7e.js"></script>
   <script type="text/javascript" src="assets/js/main.js"></script>
 
 
@@ -51,14 +52,18 @@
 
     <div class="columns col-right">
       <p>Your Score: <span class="score">0</span></p>
-      <form>
-        <input type="text" class="character-name" value="">
-        <a href="#" class="send-name">Answer</a>
+      <form class="marvel-form">
+        <div class="answer-area">
+          <input type="text" class="character-name" value="" placeholder="Name is...">
+        </div>
+        <a href="#" class="send-name">Check Answer</a>
       </form>
       <a href="#" class="get-tip">I give up, who is it? <span class="tip-name"></span></a>
-      <a href="#" class="next">Next</a>
+      <a href="#" class="next">Next character <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
     </div>
-    <footer></footer>
+    <footer>
+      <a href="" data-action="share/whatsapp/share" class="whatsapp-share"><i class="fa fa-whatsapp" aria-hidden="true"></i> Share my score</a>
+    </footer>
   </div>
 </body>
 </html>

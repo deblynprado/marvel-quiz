@@ -1,25 +1,12 @@
+/*Imports*/
 @import "compass/css3";
+@import "partials/general.scss";
 
-body { overflow: hidden; }
+/*Variables*/
+$rightColor: #00741B;
+$wrongColor: #EA2328;
 
-.columns {
-	display: inline-block;
-	position: relative;
-	width: 50%;
-
-	&.col-left { float: left; }
-
-	&.col-right { float: right; }
-}
-
-.character-photo { width: 100%; }
-
-header {
-	display: inline-block;
-	text-align: center;
-	width: 100%;
-}
-
+/*Styles*/
 .loading {
 	background-image: url('../images/loading.gif');
 	background-repeat: no-repeat;
@@ -31,10 +18,62 @@ header {
 	overflow: hidden;
 }
 
-@media( max-width: 767px ) {
-	.columns {
-		width: 100%;
+.character-photo { width: 100%; }
 
-		.col-right { float: left; }
+.marvel-form { margin-bottom: 20px; }
+
+.answer-area {
+	float: left;
+	width: 180px;
+}
+
+.right-answer,
+.wrong-answer {
+	&:after {
+		display: inline-block;
+		font-family: fontAwesome;
+		height: 20px;
+		position: relative;
+		width: 20px;
 	}
+}
+
+.right-answer {
+	&:after {
+		content: "\f00c";
+		color: $rightColor;
+}
+
+	.character-name { box-shadow: 0 0 5px $rightColor; }
+}
+
+.wrong-answer {
+	&:after {
+		content: "\f00d";
+		color: $wrongColor;
+	}
+
+	.character-name { box-shadow: 0 0 5px $wrongColor; }
+}
+
+.get-tip {
+	display: inline-block;
+	width: 100%;
+	.tip-name { text-decoration: underline; }
+}
+
+.next {
+	display: inline-block;
+	margin: 5px 0;
+}
+
+.whatsapp-share {
+	color: #65BC54;
+	display: none;
+	font-weight: 600;
+	.fa { font-weight: 600; }
+}
+
+@media( max-width: 767px ) {
+	.whatsapp-share { display: inline-block; }
 }

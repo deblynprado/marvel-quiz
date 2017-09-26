@@ -1,0 +1,45 @@
+body { overflow-x: hidden; }
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+header {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.content {
+	display: inline-block;
+	width: 100%;
+}
+
+.columns {
+	display: inline-block;
+	position: relative;
+	width: 50%;
+
+	&.col-left { float: left; }
+
+	&.col-right { float: right; }
+}
+
+.columns {
+	display: inline-block;
+	position: relative;
+	width: 50%;
+
+	&.col-left { float: left; }
+
+	&.col-right { float: right; }
+}
+
+@media( max-width: 767px ) {
+	.columns {
+		width: 100%;
+
+		.col-right { float: left; }
+	}
+}
