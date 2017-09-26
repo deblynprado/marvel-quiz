@@ -2,7 +2,14 @@
 var PRIV_KEY = "e7137b2aa0e213d118f0a029e3afe15cc0d29847";
 var PUBLIC_KEY = "d6b46e6c9c347142b41298a810dd7dd7";
 var score = 0;
+var topCharacters = 10;
 var appAddress = 'https://deblynprado.github.io/marvel-quiz/';
+
+function loadScore(score) {
+	var score = this.score;
+	$('.score').html(score);
+	return;
+}
 
 function whatsShare(score) {
 	var score = this.score;
@@ -43,7 +50,13 @@ function getCharacter(id) {
 	.done(function(data) {
 		$('.loading').css('display', 'none');
 		$('.content').css('display', 'inline-block');
-		characterInfo(data);
+		topCharacters--;
+		if (topCharacters >= 0) {
+			characterInfo(data);
+		} else {
+			$('.content').css('display', 'none');
+			$('.game-over').css('display', 'inline-block');
+		}
 	})
 	.fail(function(err){
 		$('.content').css('display', 'none');
@@ -64,6 +77,8 @@ function nextChar() {
 		$('.tip-name').html('');
 		$('.character-name').val('');
 		$('.answer-area').removeClass('right-answer wrong-answer');
+		$('.get-tip').removeClass('blocked');
+		$('.send-name').removeClass('blocked');
 		generateCharID();
 	});
 }
@@ -78,6 +93,7 @@ function answerTip(name) {
 		e.preventDefault();
 		$('.tip-name').html(name);
 		$('.character-name').attr('disabled', 'disabled');
+		$('.send-name').addClass('blocked');
 	});
 }
 
@@ -97,12 +113,14 @@ function checkAnswer(name) {
 		e.preventDefault();
 		if ( answer.toLowerCase() === name.toLowerCase() ) {
 			score++;
-			$('.score').html(score);
+			loadScore(score);
 			$('.answer-area').addClass('right-answer');
+			$('.get-tip').addClass('blocked');
+			$('.send-name').addClass('blocked');
 		} else {
 			score--;
 			if ( score < 0 ) { score = 0; }
-			$('.score').html(score);
+			loadScore(score);
 			$('.answer-area').addClass('wrong-answer');
 		}
 
@@ -130,4 +148,5 @@ $(function() {
 	generateCharID();
 	nextChar();
 	whatsShare();
+	loadScore();
 })();

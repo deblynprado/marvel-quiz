@@ -7,6 +7,12 @@ $rightColor: #00741B;
 $wrongColor: #EA2328;
 
 /*Styles*/
+
+.blocked {
+	color: #ccc;
+	pointer-events: none;
+}
+
 .loading {
 	background-image: url('../images/loading.gif');
 	background-repeat: no-repeat;
@@ -72,6 +78,11 @@ $wrongColor: #EA2328;
 	display: none;
 	font-weight: 600;
 	.fa { font-weight: 600; }
+}
+
+.game-over {
+	display: none;
+	width: 100%;
 }
 
 @media( max-width: 767px ) {
