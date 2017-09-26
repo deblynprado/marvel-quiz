@@ -2,6 +2,16 @@
 var PRIV_KEY = "e7137b2aa0e213d118f0a029e3afe15cc0d29847";
 var PUBLIC_KEY = "d6b46e6c9c347142b41298a810dd7dd7";
 var score = 0;
+var appAddress = 'https://deblynprado.github.io/marvel-quiz/';
+
+function whatsShare(score) {
+	var score = this.score;
+	$('.whatsapp-share').click(function(e){		
+		e.preventDefault();
+		$(this).attr('href', 'whatsapp://send?text=Just finished my Marvel Quiz! My score is: ' + score + '. Try on ' + appAddress);
+		window.location = $(this).attr('href');
+	});
+}
 
 /**
  * [generateCharID - Generates a random ID to get charaters on API]
@@ -11,7 +21,7 @@ function generateCharID() {
 	var minID = 1009210; // Lower ID that I found on API
 	var maxID = 1009742; // Higher ID that I found on API
 	var charId = Math.floor(Math.random()*(minID-maxID+1)+minID);
-	getCharacter(charId);
+	getCharacter('1009718');
 }
 
 /**
@@ -53,6 +63,7 @@ function nextChar() {
 		$('.character-name').removeAttr('disabled');
 		$('.tip-name').html('');
 		$('.character-name').val('');
+		$('.answer-area').removeClass('right-answer wrong-answer');
 		generateCharID();
 	});
 }
@@ -76,6 +87,10 @@ function answerTip(name) {
  * @return {[type]} void
  */
 function checkAnswer(name) {
+	$('.character-name').focus(function(){
+		$(this).parent().removeClass('wrong-answer');
+	});
+
 	$('.send-name').click(function(e){
 		var answer = $('.character-name').val();
 
@@ -83,11 +98,15 @@ function checkAnswer(name) {
 		if ( answer.toLowerCase() === name.toLowerCase() ) {
 			score++;
 			$('.score').html(score);
+			$('.answer-area').addClass('right-answer');
 		} else {
 			score--;
 			if ( score < 0 ) { score = 0; }
 			$('.score').html(score);
+			$('.answer-area').addClass('wrong-answer');
 		}
+
+		whatsShare(score);
 	});
 }
 
@@ -110,4 +129,5 @@ function characterInfo(characterData) {
 $(function() {
 	generateCharID();
 	nextChar();
+	whatsShare();
 })();
