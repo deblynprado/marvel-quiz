@@ -5,12 +5,22 @@ var score = 0;
 var topCharacters = 10;
 var appAddress = 'https://deblynprado.github.io/marvel-quiz/';
 
+/**
+ * [loadScore Receive score and append on HTML elements that contains .score]
+ * @param  {integer} score - User score
+ * @return {void}
+ */
 function loadScore(score) {
 	var score = this.score;
 	$('.score').html(score);
 	return;
 }
 
+/**
+ * [whatsShare Generate content to be shared on WhatsApp]
+ * @param  {int} score - User Score
+ * @return {void}
+ */
 function whatsShare(score) {
 	var score = this.score;
 	$('.whatsapp-share').click(function(e){		
